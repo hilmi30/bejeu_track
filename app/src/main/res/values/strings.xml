@@ -1,0 +1,11 @@
+<resources>
+    <string name="mapbox_access_token">pk.eyJ1IjoiaGlsbWkzMCIsImEiOiJjam5sOTR3NDMwMDlvM3FwNm04ZnFncXl0In0.mJQ1LHVJp47yqFw5Ea5ABw</string>
+    <string name="app_name">Bejeutrack</string>
+    <string name="id_armada">Id Armada</string>
+    <string name="pilih_armada">Pilih Armada</string>
+    <string name="masukkan_kode_armada_contoh_b12">Kode armada, contoh: B66</string>
+    <string name="lacak">lacak</string>
+    <string name="image_desc">image desc</string>
+    <string name="speed_150_km_h">Speed : 150 km/h</string>
+    <string name="course_n">Course : N</string>
+</resources>

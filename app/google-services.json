@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "204533224101",
+    "firebase_url": "https://bejeutrack.firebaseio.com",
+    "project_id": "bejeutrack",
+    "storage_bucket": "bejeutrack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204533224101:android:2988fad5ed67f6d7",
+        "android_client_info": {
+          "package_name": "com.vimark.bejeutrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204533224101-gg0ogn2m7fikr568euahlqtddcfo4seq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vimark.bejeutrack",
+            "certificate_hash": "33a46f7419d25b9860a9570505d29867ce222a72"
+          }
+        },
+        {
+          "client_id": "204533224101-v9tn929e8284qqchgboc7i4sj421rrla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw5xlUIsFiqDpEqxW7iht0N04ohezx43w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204533224101-v9tn929e8284qqchgboc7i4sj421rrla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
