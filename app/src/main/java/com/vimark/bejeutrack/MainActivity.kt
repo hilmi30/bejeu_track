@@ -1,6 +1,8 @@
 package com.vimark.bejeutrack
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        handleIntent(intent)
+
         loading = KProgressHUD.create(this)
             .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
             .setLabel("Please wait")
@@ -48,6 +52,26 @@ class MainActivity : AppCompatActivity() {
             lacakArmada()
         }
     }
+
+//    override fun onNewIntent(intent: Intent) {
+//        super.onNewIntent(intent)
+//        handleIntent(intent)
+//    }
+
+//    private fun handleIntent(intent: Intent) {
+//        val appLinkAction = intent.action
+//        val appLinkData: Uri? = intent.data
+//        if (Intent.ACTION_VIEW == appLinkAction) {
+//            appLinkData?.lastPathSegment?.also { id ->
+//                Uri.parse("content://com.vimark.bejeutrack/main/")
+//                    .buildUpon()
+//                    .appendPath(id)
+//                    .build().also { appData ->
+//                        showRecipe(appData)
+//                    }
+//            }
+//        }
+//    }
 
     @SuppressLint("DefaultLocale")
     private fun lacakArmada() {

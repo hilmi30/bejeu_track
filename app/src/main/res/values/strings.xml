@@ -8,4 +8,5 @@
     <string name="image_desc">image desc</string>
     <string name="speed_150_km_h">Speed : 150 km/h</string>
     <string name="course_n">Course : N</string>
+    <string name="asset_statements" translatable="false">[{ \"include\": \"https://thevimark.com/.well-known/assetlinks.json\" }]</string>
 </resources>
