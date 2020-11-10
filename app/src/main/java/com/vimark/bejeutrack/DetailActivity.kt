@@ -1,6 +1,7 @@
 package com.vimark.bejeutrack
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,8 @@ import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.maps.MapView
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
+import com.vimark.bejeutrack.model.DeviceModel
+import com.vimark.bejeutrack.model.PositionModel
 import com.vimark.bejeutrack.network.ApiRepo
 import com.vimark.bejeutrack.network.RetrofitBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -31,6 +34,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var loading: KProgressHUD
     private lateinit var mapBoxMap: MapboxMap
     private var positionId = 0
+    private var positionData: List<PositionModel> = listOf()
+    private var deviceData: List<DeviceModel> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +78,8 @@ class DetailActivity : AppCompatActivity() {
             .subscribeBy(
                 onNext = { devices ->
                     loading.dismiss()
+
+                    deviceData = devices
                     detail_tv_idarmada.text = devices[0].name
                     positionId = devices[0].positionId
                     loadPosition(positionId)
@@ -87,6 +94,23 @@ class DetailActivity : AppCompatActivity() {
         detail_btn_refresh.onClick {
             loadPosition(positionId)
         }
+
+        // https://maps.google.com/maps?q=24.197611,120.780512
+
+        btn_share.onClick {
+            val text = "Cek lokasi bus ${deviceData[0].name} di https://maps.google.com/maps?q=" +
+                    "${positionData[0].latitude},${positionData[0].longitude}\n\n" +
+                    "Download BejeuTrack di https://play.google.com/store/apps/details?id=com.vimark.bejeutrack"
+
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, text)
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -100,6 +124,8 @@ class DetailActivity : AppCompatActivity() {
             .subscribeBy(
                 onNext = { positions ->
                     loading.dismiss()
+
+                    positionData = positions
                     detail_btn_refresh.visibility = View.VISIBLE
 
                     mapBoxMap.clear()

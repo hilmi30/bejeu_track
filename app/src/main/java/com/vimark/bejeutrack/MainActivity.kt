@@ -53,26 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onNewIntent(intent: Intent) {
-//        super.onNewIntent(intent)
-//        handleIntent(intent)
-//    }
-
-//    private fun handleIntent(intent: Intent) {
-//        val appLinkAction = intent.action
-//        val appLinkData: Uri? = intent.data
-//        if (Intent.ACTION_VIEW == appLinkAction) {
-//            appLinkData?.lastPathSegment?.also { id ->
-//                Uri.parse("content://com.vimark.bejeutrack/main/")
-//                    .buildUpon()
-//                    .appendPath(id)
-//                    .build().also { appData ->
-//                        showRecipe(appData)
-//                    }
-//            }
-//        }
-//    }
-
     @SuppressLint("DefaultLocale")
     private fun lacakArmada() {
 
@@ -88,8 +68,6 @@ class MainActivity : AppCompatActivity() {
                     loading.dismiss()
 
                     for (document in it.result as QuerySnapshot) {
-                        // Log.d("data", document.id + " => " + document.data["id"])
-
                         id = document.data["id"].toString().toInt()
                         startActivity<DetailActivity>(
                             "id" to id
